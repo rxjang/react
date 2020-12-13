@@ -4,8 +4,8 @@ import UserList from './UserList';
 
 function App() {
   const[inputs,setInputs]=useState({
-    username:"",
-    email:""
+    username:'',
+    email:'',
   });
   const {username,email}=inputs;
   const onChange=e=>{
@@ -47,12 +47,16 @@ const onCreate=()=>{
     email:''
   })
   nextId.current+=1;
-}
+};
+
+const onRemove=id=>{
+  setUsers(users.filter(user=>user.id!==id));
+};
 
   return (
     <>
       <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate}/>
-      <UserList users={users}/>
+      <UserList users={users} onRemove={onRemove}/>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ColorPage from './ColorPage';
 
 export default function App() {
     const [todoList, setTodoList] = useState([]);
@@ -35,6 +36,7 @@ export default function App() {
             <button onClick={onAdd}>추가</button>
             <button onClick={() => {setShowOdd(!showOdd)}}>홀수 아이템만 보기 on/off</button>
             <button onClick={onSaveToServer}>서버에 저장</button>
+            <ColorPage/>
         </div>
     );
 }

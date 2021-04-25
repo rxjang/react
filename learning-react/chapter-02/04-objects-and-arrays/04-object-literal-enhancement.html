@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Literal Enhancement</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Literal Enhancement</h1>
+<p>Open the console</p>
+<script type="text/babel">
+
+    var name = "Felix Lee"
+    var sound = "go fast"
+
+    // Object literals, the old way
+    var skier = {
+        name: name,
+        sound: sound,
+        powderYell: function() {
+            var yell = this.sound.toUpperCase()
+            console.log(`${yell} ${yell} ${yell}!!!`)
+        },
+        speed: function(mph) {
+            this.speed = mph
+            console.log('speed:', mph)
+        }
+    }
+
+    skier.powderYell()
+    skier.speed(350)
+    console.log(JSON.stringify(skier))
+
+    // Object literals enhancement
+    var skier = {
+        name,
+        sound,
+        powderYell() {
+            let yell = this.sound.toUpperCase()
+            console.log(`${yell} ${yell} ${yell}!!!`)
+        },
+        speed(mph) {
+            this.speed = mph
+            console.log('speed:', mph)
+        }
+    }
+
+    skier.powderYell()
+    skier.speed(350)
+    console.log(JSON.stringify(skier))
+        
+</script>
+</body>
+</html>

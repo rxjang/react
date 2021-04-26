@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Spread Operator</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Spread Operator</h1>
+<p>Open the console</p>
+<script type="text/babel">
+
+    var peaks = ["대청봉", "중청봉", "소청봉"];
+    var canyons = ["천불동계곡", "가야동 계곡"];
+    var seroksan = [...peaks, ...canyons];
+
+    console.log(seroksan.join(', '))
+
+    var [last]  = peaks.reverse()
+
+    console.log(last)
+    console.log(peaks.join(', '))
+    //원본 배열까지 리버스 됨
+
+    var size = ["소", "중", "대"]
+    var [last] = [...size].reverse()
+
+    console.log(last)
+    console.log(size.join(', '))
+
+    var lakes = ["경포호", "화진포", "송지호", "청조호"]
+    var [fist,...rest] = lakes
+    
+    console.log(rest.join(', '))
+
+</script>
+</body>
+</html>

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Profile from "./Profile";
+import WidthPrinter from "./WidthPrinter";
 
 export default function App() {
-  const [userId, setUserId] = useState(0);
+  const [count, setCount] = useState(0);
   return (
     <>
-      <Profile userId={userId} />
-      <button onClick={() => setUserId(userId + 1)}> userId 변경</button>
+      {count === 0 && <WidthPrinter />}
+      <button onClick={() => setCount(count + 1)}>증가</button>
     </>
   );
 }

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
+import Profile from "./Profile";
 
 export default function App() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    document.title = `업데이트 횟수: ${count}`;
-  });
+  const [userId, setUserId] = useState(0);
   return (
-    <div>
-      <button onClick={() => setCount(count + 1)}>increase</button>
-    </div>
+    <>
+      <Profile userId={userId} />
+      <button onClick={() => setUserId(userId + 1)}> userId 변경</button>
+    </>
   );
 }

@@ -11,7 +11,7 @@ export default function Profile({ userId }) {
       {user && (
         <>
           <p>{`name is ${user.name}`}</p>
-          <p>{`age is $ ${user.age}`}</p>
+          <p>{`age is ${user.age}`}</p>
         </>
       )}
     </div>

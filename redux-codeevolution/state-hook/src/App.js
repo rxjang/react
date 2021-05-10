@@ -1,10 +1,10 @@
 import "./App.css";
-import HookName from "./components/HookName";
+import DataFetching from "./components/DataFetching";
 
 function App() {
   return (
     <div className="App">
-      <HookName />
+      <DataFetching />
     </div>
   );
 }

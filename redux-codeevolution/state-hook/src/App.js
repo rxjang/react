@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
-import FunctionClick from "./components/FunctionClick";
+import HookName from "./components/HookName";
 
 function App() {
   return (
     <div className="App">
-      <FunctionClick />
+      <HookName />
     </div>
   );
 }

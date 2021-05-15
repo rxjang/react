@@ -1,13 +1,11 @@
 import React from "react";
 import "./App.css";
-import FocusInput from "./components/useRef/FocusInput";
-import HookTimer from "./components/useRef/HookTimer";
+import UserForm from "./components/UserForm";
 
 function App() {
   return (
     <div className="App">
-      <FocusInput />
-      <HookTimer />
+      <UserForm />
     </div>
   );
 }

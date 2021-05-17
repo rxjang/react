@@ -2,11 +2,36 @@ import React from "react";
 import Button from "./Button";
 
 export default {
-  title: "Button",
+  title: "form/Button",
   component: Button,
+  args: {
+    children: "Button",
+  },
 };
 
-export const Primary = () => <Button varient="primary">Primary</Button>;
-export const Secondary = () => <Button varient="secondary">Secondary</Button>;
-export const Success = () => <Button varient="success">Success</Button>;
-export const Danger = () => <Button varient="danger">Danger</Button>;
+export const Primary = () => <Button variant="primary">Primary</Button>;
+export const Secondary = () => <Button variant="secondary">Secondary</Button>;
+export const Success = () => <Button variant="success">Success</Button>;
+export const Danger = () => <Button variant="danger">Danger</Button>;
+
+Primary.storyName = "Primary button";
+
+const Template = (args) => <Button {...args} />;
+
+export const PrimaryA = Template.bind({});
+PrimaryA.args = {
+  variant: "primary",
+  children: "Primary Args",
+};
+
+export const LongPrimaryA = Template.bind({});
+LongPrimaryA.args = {
+  ...PrimaryA.args,
+  // children: "Long Primary A",
+};
+
+export const SecondaryA = Template.bind({});
+SecondaryA.args = {
+  variant: "secondary",
+  // children: "Secondary Args",
+};

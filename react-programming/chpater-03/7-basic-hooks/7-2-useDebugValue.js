@@ -2,7 +2,7 @@ import React from "react";
 import useChangeAppState, {
   STATE_RUNNING,
   STATE_START,
-} from "./useChangeAppState";
+} from "./7-1-useDebugValue";
 
 export default function App() {
   const [state, next] = useChangeAppState(true);

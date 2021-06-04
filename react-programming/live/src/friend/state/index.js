@@ -1,4 +1,8 @@
-import createReducer from "../../common/createReucer";
+import {
+  createReducer,
+  createSetValueAction,
+  setValueReducer,
+} from "../../common/redux-helper";
 import { MAX_AGE_LIMIT, MAX_SHOW_LIMIT } from "../common";
 
 const ADD = "friend/ADD";
@@ -6,15 +10,14 @@ const REMOVE = "friend/REMOVE";
 const EDIT = "friend/EDIT";
 const SET_AGE_LIMIT = "friend/SET_AGE_LIMIT";
 const SET_SHOW_LIMIT = "friend/SET_SHOW_LIMIT";
+const SET_VALUE = "friend/SET_VALUE";
 
-export const addFriend = (friend) => ({ type: ADD, friend });
-export const removeFriend = (friend) => ({ type: REMOVE, friend });
-export const editFriend = (friend) => ({ type: EDIT, friend });
-export const setAgeLimit = (ageLimit) => ({ type: SET_AGE_LIMIT, ageLimit });
-export const setShowLimit = (showLimit) => ({
-  type: SET_SHOW_LIMIT,
-  showLimit,
-});
+export const actions = {
+  addFriend: (friend) => ({ type: ADD, friend }),
+  removeFriend: (friend) => ({ type: REMOVE, friend }),
+  editFriend: (friend) => ({ type: EDIT, friend }),
+  setValue: createSetValueAction(SET_VALUE),
+};
 
 const INTIAL_STATE = {
   friends: [],
@@ -37,6 +40,7 @@ const friendReducer = createReducer(INTIAL_STATE, {
   },
   [SET_AGE_LIMIT]: (state, action) => (state.ageLimit = action.ageLimit),
   [SET_SHOW_LIMIT]: (state, action) => (state.showLimit = action.showLimit),
+  [SET_VALUE]: setValueReducer,
 });
 
 export default friendReducer;

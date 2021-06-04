@@ -1,4 +1,4 @@
-import createReducer from "../common/createReucer";
+import { createReducer } from "../common/redux-helper";
 
 const ADD = "timeline/ADD";
 const REMOVE = "timeline/REMOVE";

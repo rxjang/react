@@ -6,10 +6,10 @@ const friends = [
 ];
 
 const timelines = [
-  { desc: "Coding", lieks: 0 },
-  { desc: "JavaScript", lieks: 10 },
-  { desc: "React", lieks: 20 },
-  { desc: "Redux", lieks: 30 },
+  { desc: "Coding", likes: 0 },
+  { desc: "JavaScript", likes: 10 },
+  { desc: "React", likes: 20 },
+  { desc: "Redux", likes: 30 },
 ];
 
 function makeDataGenerator(items) {

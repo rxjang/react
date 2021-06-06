@@ -1,32 +1,28 @@
-import React, { useEffect, useReducer } from "react";
-import store from "../../common/store";
+import React from "react";
 import { getNextTimelines } from "../../common/mockData";
-import { addTimeline } from "../state";
 import TimelineList from "../component/TimelineList";
+import { useDispatch, useSelector } from "react-redux";
+import { actions } from "../state";
 
 export default function TimelineMain() {
-  const [, foreceUpdate] = useReducer((v) => v + 1, 0);
-  useEffect(() => {
-    let prevTimelines = store.getState().timeline.timelines;
-    const unsubscirbe = store.subscribe(() => {
-      const timelines = store.getState().timeline.timelines;
-      if (prevTimelines !== timelines) {
-        foreceUpdate();
-      }
-      prevTimelines = timelines;
-    });
-    return () => unsubscirbe();
-  }, []);
+  const dispatch = useDispatch();
+  const timelines = useSelector((state) => state.timeline.timelines);
+  const isLoading = useSelector((state) => state.timeline.isLoading);
   function onAdd() {
     const timeline = getNextTimelines();
-    store.dispatch(addTimeline(timeline));
+    dispatch(actions.addTimeline(timeline));
+  }
+  function onLike(e) {
+    const id = Number(e.target.dataset.id);
+    const timeline = timelines.find((item) => item.id === id);
+    dispatch(actions.requestLike(timeline));
   }
   console.log("TimelineMain render");
-  const timelines = store.getState().timeline.timelines;
   return (
     <div>
       <button onClick={onAdd}>Add timeline</button>
-      <TimelineList timelines={timelines} />
+      <TimelineList timelines={timelines} onLike={onLike} />
+      {isLoading && <p>전송 중...</p>}
     </div>
   );
 }

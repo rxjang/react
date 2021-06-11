@@ -10,8 +10,11 @@ import {
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import History from "../../common/component/Hisotry";
 import useFetchInfo from "../../common/hook/useFetchInfo";
 import { actions, Types } from "../state";
+import Departmemt from "./Department";
+import TagList from "./TagList";
 
 /**
  *
@@ -43,10 +46,14 @@ export default function User({ match }) {
                 <Typography.Text>{user.name}</Typography.Text>
               </Descriptions.Item>
               <Descriptions.Item label="소속">
-                {user.department}
+                <Departmemt />
               </Descriptions.Item>
-              <Descriptions.Item label="태그">{user.tag}</Descriptions.Item>
-              <Descriptions.Item label="수정 내역">수정 내역</Descriptions.Item>
+              <Descriptions.Item label="태그">
+                <TagList />
+              </Descriptions.Item>
+              <Descriptions.Item label="수정 내역">
+                <History />
+              </Descriptions.Item>
             </Descriptions>
           )}
           {!user && isFetched && (

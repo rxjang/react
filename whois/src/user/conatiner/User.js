@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import History from "../../common/component/Hisotry";
 import useFetchInfo from "../../common/hook/useFetchInfo";
+import useNeedLogin from "../../common/hook/useNeedLogin";
 import FetchLabel from "../FetchLabel";
 import { actions, Types } from "../state";
 import Departmemt from "./Department";
@@ -15,6 +16,7 @@ import TagList from "./TagList";
  * @param {import('react-router').match} param.match
  */
 export default function User({ match }) {
+  useNeedLogin();
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);

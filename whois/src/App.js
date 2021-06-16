@@ -5,13 +5,19 @@ import { Route } from "react-router";
 import User from "./user/conatiner/User";
 import Login from "./auth/container/Login";
 import Signup from "./auth/container/SignUp";
+import { useDispatch } from "react-redux";
+import { actions as authActions } from "./auth/state";
 
 export default function App() {
+  const dispatch = useDispatch();
   useEffect(() => {
     const bodyEl = document.getElementsByTagName("body")[0];
     const loadingEl = document.getElementById("init-loading");
     bodyEl.removeChild(loadingEl);
   }, []);
+  useEffect(() => {
+    dispatch(authActions.fetchUser());
+  }, [dispatch]);
 
   return (
     <>
